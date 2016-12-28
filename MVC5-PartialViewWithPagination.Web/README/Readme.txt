@@ -1,0 +1,1 @@
+﻿Para iniciar execute as QUERY's SQL 1 e 2 para criação do banco de dados

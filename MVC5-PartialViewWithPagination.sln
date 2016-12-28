@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC5-PartialViewWithPagination.Web", "MVC5-PartialViewWithPagination.Web\MVC5-PartialViewWithPagination.Web.csproj", "{D43BAE71-A3F0-4C47-AA23-CC4C925AC802}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{24DF8605-256D-4E77-A0D9-6CE4A2759990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestPlayers.Core", "BestPlayers.Core\BestPlayers.Core.csproj", "{C9DC81DA-59D0-41EB-ADC8-CE8E943FF608}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,18 @@ Global
 		{D43BAE71-A3F0-4C47-AA23-CC4C925AC802}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D43BAE71-A3F0-4C47-AA23-CC4C925AC802}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D43BAE71-A3F0-4C47-AA23-CC4C925AC802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9DC81DA-59D0-41EB-ADC8-CE8E943FF608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DC81DA-59D0-41EB-ADC8-CE8E943FF608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DC81DA-59D0-41EB-ADC8-CE8E943FF608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DC81DA-59D0-41EB-ADC8-CE8E943FF608}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9DC81DA-59D0-41EB-ADC8-CE8E943FF608} = {24DF8605-256D-4E77-A0D9-6CE4A2759990}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
