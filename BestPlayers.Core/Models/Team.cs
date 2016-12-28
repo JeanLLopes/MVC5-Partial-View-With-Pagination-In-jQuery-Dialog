@@ -47,6 +47,20 @@ namespace BestPlayers.Core.Models
         /// get and set the TestRuns  
         /// </summary>  
         public int TestRuns { get; set; }
+        /// <summary>  
+        /// get and set the TotalCount  
+        /// </summary>  
+        public int TotalCount { get; set; }
+        #endregion
+    }
+
+    public class Cricketer
+    {
+        #region Properties  
+        /// <summary>  
+        /// get and set the Teams  
+        /// </summary>  
+        public List<Team> Teams { get; set; }
         #endregion
     }
 }
