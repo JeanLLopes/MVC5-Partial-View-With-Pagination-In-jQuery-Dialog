@@ -9,6 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestPlayers.Core", "BestPlayers.Core\BestPlayers.Core.csproj", "{C9DC81DA-59D0-41EB-ADC8-CE8E943FF608}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README", "README", "{A797EEC8-DDFE-471C-8E2A-ED3E9133413F}"
+	ProjectSection(SolutionItems) = preProject
+		MVC5-PartialViewWithPagination.Web\README\Readme.txt = MVC5-PartialViewWithPagination.Web\README\Readme.txt
+		MVC5-PartialViewWithPagination.Web\README\SQLQuery1.sql = MVC5-PartialViewWithPagination.Web\README\SQLQuery1.sql
+		MVC5-PartialViewWithPagination.Web\README\SQLQuery2.sql = MVC5-PartialViewWithPagination.Web\README\SQLQuery2.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

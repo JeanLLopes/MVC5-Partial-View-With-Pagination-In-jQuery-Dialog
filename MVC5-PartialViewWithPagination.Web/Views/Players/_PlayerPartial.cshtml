@@ -1,0 +1,114 @@
+﻿@model PagedList.IPagedList<BestPlayers.Core.Models.Players>
+@using PagedList.Mvc;
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                ODI
+            </th>
+            <th>
+                Tests
+            </th>
+            <th>
+                ODIRuns
+            </th>
+            <th>
+                TestRuns
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.ODI
+                    </td>
+                    <td>
+                        @item.Tests
+                    </td>
+                    <td>
+                        @item.ODIRuns
+                    </td>
+                    <td>
+                        @item.TestRuns
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="13" class="NoData">No data found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.TotalItemCount > 4)
+{
+    <div class="pagingBox">
+        <input id="HiddenPageSize" name="PageSize" type="hidden" />
+        <input id="HiddenPage" name="Page" type="hidden" />
+        <span class="selectBoxes display_none_mobile">
+            @Html.DropDownList("PageSize", new SelectList(new Dictionary<string, int> { { "2", 2 }, { "4", 4 } }, "Key", "Value", Convert.ToString(ViewBag.PageSize)), new { id = "pagesizelist" })
+        </span>
+        <div class="pagerecord display_none_mobile">
+            Records
+
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        </div>
+
+        @Html.PagedListPager(Model, page => Url.Action("GetPlayersByTeam", "Players",
+                                      new
+                                      {
+                                          page,
+                                          pageSize = ViewBag.PageSize,
+                                          teamId = ViewBag.TeamId
+                                      }),
+                                   PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions
+                                   {
+                                       Display = PagedListDisplayMode.IfNeeded,
+                                       MaximumPageNumbersToDisplay = 5
+                                   },
+                                   new AjaxOptions
+                                   {
+                                       InsertionMode = InsertionMode.Replace,
+                                       HttpMethod = "Get",
+                                       UpdateTargetId = "PlayerContainer"
+                                   }))
+    </div>
+}
+<script type="text/javascript">
+
+    //This mehtod is used to call when Page Size list is changed
+    $(function () {
+        $("#pagesizelist").change(function (event) {
+            $.ajax({
+                url: '@Url.Action("GetPlayersByTeam", "Players")', //"/Player/GetPlayersByTeam",
+                dataType: "html",
+                data: {
+                    page: 1,
+                    pageSize: $(this).val(),
+                    teamId: '@ViewBag.TeamId'
+                },
+                type: "GET",
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    toastr.error(err.message);
+                },
+                success: function (data) {
+                    $('#PlayerContainer').html(data);
+                }
+            });
+        });
+    });
+</script>
