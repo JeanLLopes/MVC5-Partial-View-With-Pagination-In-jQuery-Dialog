@@ -1,0 +1,29 @@
+﻿@model BestPlayers.Core.Models.Cricketer
+@{
+    ViewBag.Title = "Teams";
+}
+
+<h2>Teams</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Teams.Count > 0)
+        {
+            foreach (var item in Model.Teams)
+            {
+                <tr>
+                    <td>
+                        <a href="javascript:void(0)" onclick="GetPlayersDetails('@item.ID')">@item.Name</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>  

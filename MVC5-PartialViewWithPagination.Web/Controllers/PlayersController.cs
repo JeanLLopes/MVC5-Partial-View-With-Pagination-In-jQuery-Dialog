@@ -23,7 +23,7 @@ namespace MVC5_PartialViewWithPagination.Web.Controllers
             {
                 teamList = response.ToList();
             }
-            return View("~/Views/Player/Teams.cshtml", new Cricketer { Teams = teamList });
+            return View("~/Views/Players/Teams.cshtml", new Cricketer { Teams = teamList });
         }
         #endregion
     }
